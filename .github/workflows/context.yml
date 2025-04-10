@@ -1,8 +1,12 @@
 name: ENV-CONTEXT
-on: push
-env:
-  NAME: ABHSHEK
-  env_var: ${{ vars.ACTIONS }}
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
 
 jobs:
   linux_job:
@@ -14,7 +18,11 @@ jobs:
           echo 'Session-number: ${{ env.env_var }}'
         env:
           NAME: harish
- 
+
       - name: Check job status
         run: |
-          echo "${{jobs.linux_job.status}}"
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "Job succeeded"
+          else
+            echo "Job failed"
+          fi
