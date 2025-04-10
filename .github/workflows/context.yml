@@ -14,10 +14,10 @@ jobs:
           echo 'Session-number: ${{ env.env_var }}'
         env:
           NAME: harish
-
+ 
       - name: Check job status
         run: |
-          if [ "${{ job.status }}" == "success" ]; then
+          if [ "${{ jobs.linux_job.status }}" == "success" ]; then
             echo "Job succeeded"
           else
             echo "Job failed"
