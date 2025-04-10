@@ -25,7 +25,7 @@ jobs:
           echo "name of the os:" ${{runner.os}}
         env:
           NAME: karthika
-          access_cred: ${{secrets.API_KEY}
+          access_cred: ${{secrets.API_KEY}}
 
       - name: Check job status
         run: |
