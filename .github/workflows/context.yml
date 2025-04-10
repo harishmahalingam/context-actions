@@ -16,7 +16,7 @@ jobs:
       - name: Print the training session number
         run: |
           echo 'Hi ${{ inputs.username }}'
-          echo 'you attending Session-number: ${{ env.env_var }}'
+          echo 'you attending Session-number: ${{ vars.actions }}'
           echo 'Session conducted by :' $env.name
         env:
           NAME: karthika
