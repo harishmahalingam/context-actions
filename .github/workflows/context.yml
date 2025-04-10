@@ -3,11 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       username:
-        description: 'A username passed from the caller workflow'
-        default: 'john-doe'
+        description: 'Trainee Name'
+        default: 'Niraj'
         required: false
         type: string
-      env_var: ${{ vars.ACTIONS }}
+
 
 jobs:
   linux_job:
