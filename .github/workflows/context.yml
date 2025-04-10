@@ -3,14 +3,22 @@ on: push
 env:
   NAME: ABHSHEK
   env_var: ${{ vars.ACTIONS }}
-  
+
 jobs:
   linux_job:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo 'Hi ${{ env.NAME }}'  
-          echo 'Session-number': $env_var
-          echo '${{job.status}}'
-    env:
-      NAME: harish
+      - name: Print the training session number
+        run: |
+          echo 'Hi ${{ env.NAME }}'
+          echo 'Session-number: ${{ env.env_var }}'
+        env:
+          NAME: harish
+
+      - name: Check job status
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "Job succeeded"
+          else
+            echo "Job failed"
+          fi
