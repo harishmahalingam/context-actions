@@ -8,22 +8,23 @@ on:
         required: false
         type: string
 
-
 jobs:
   linux_job:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        session: [1, 2]
     steps:
-      - name: TRAINING-DETAILS
+      - name: Print the training session number
         run: |
           echo 'Hi ${{ inputs.username }}'
-          echo 'you attending Session-number: ${{ vars.actions }}'
-          echo "Session conducted by :" ${{env.NAME}}
-          echo "Credetials for the training" : ${{env.access_cred}}
+          echo 'You are attending Session-number: ${{ vars.actions }}'
+          echo "Session conducted by: ${{ env.NAME }}"
+          echo "Number session: ${{ matrix.session }}"
         env:
           NAME: karthika
-          access_cred: ${{secrets.API_KEY}}
 
-      - name: JOB-STATUS
+      - name: Check job status
         run: |
           if [ "${{ job.status }}" == "success" ]; then
             echo "Job succeeded"
