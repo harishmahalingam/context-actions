@@ -1,11 +1,12 @@
-name: github-Context testing
+name: ENV-CONTEXT
 on: push
-
+env:
+  NAME: ABHSHEK
+  
 jobs:
-  dump_contexts_to_log:
+  linux_job:
     runs-on: ubuntu-latest
+    env:
+      NAME: harish
     steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+      - run: echo 'Hi ${{ env.NAME }}'  # Hi Tux
