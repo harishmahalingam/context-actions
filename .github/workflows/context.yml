@@ -2,11 +2,14 @@ name: ENV-CONTEXT
 on: push
 env:
   NAME: ABHSHEK
+  env_var: ${{ vars.ACTIONS }}
   
 jobs:
   linux_job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Hi ${{ env.NAME }}'  # Hi Tux
+      - run: |
+          echo 'Hi ${{ env.NAME }}'  
+          echo 'Session-number': $env_var
     env:
       NAME: harish
