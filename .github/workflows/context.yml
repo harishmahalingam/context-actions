@@ -8,9 +8,4 @@ jobs:
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: |
-         echo "1:" $github.action_path
-         echo "2:" $github.action_ref
-         echo "3:" $github.action_repository
-         echo "4:" $github.action_status
-         echo "5:"$github.event
+          run: echo "value:" $GITHUB_CONTEXT
