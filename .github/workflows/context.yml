@@ -6,7 +6,7 @@ env:
 jobs:
   linux_job:
     runs-on: ubuntu-latest
-    env:
-      NAME: harish
     steps:
       - run: echo 'Hi ${{ env.NAME }}'  # Hi Tux
+    env:
+      NAME: harish
