@@ -11,5 +11,6 @@ jobs:
       - run: |
           echo 'Hi ${{ env.NAME }}'  
           echo 'Session-number': $env_var
+          echo '${{job.status}}'
     env:
       NAME: harish
