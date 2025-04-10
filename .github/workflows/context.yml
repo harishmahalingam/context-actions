@@ -7,6 +7,7 @@ on:
         default: 'john-doe'
         required: false
         type: string
+      env_var: ${{ vars.ACTIONS }}
 
 jobs:
   linux_job:
@@ -15,9 +16,10 @@ jobs:
       - name: Print the training session number
         run: |
           echo 'Hi ${{ inputs.username }}'
-          echo 'Session-number: ${{ env.env_var }}'
+          echo 'you attending Session-number: ${{ env.env_var }}'
+          echo Session conducted by : '$env.name'
         env:
-          NAME: harish
+          NAME: karthika
 
       - name: Check job status
         run: |
