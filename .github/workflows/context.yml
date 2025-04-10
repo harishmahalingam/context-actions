@@ -18,8 +18,10 @@ jobs:
           echo 'Hi ${{ inputs.username }}'
           echo 'you attending Session-number: ${{ vars.actions }}'
           echo "Session conducted by :" ${{env.NAME}}
+          echo "Credetials for the training" : ${{env.access_cred}}
         env:
           NAME: karthika
+          access_cred: ${{secrets.API_KEY}}
 
       - name: JOB-STATUS
         run: |
