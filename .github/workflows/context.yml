@@ -21,6 +21,7 @@ jobs:
           echo 'You are attending Session-number: ${{ vars.actions }}'
           echo "Session conducted by: ${{ env.NAME }}"
           echo "Number session: ${{ matrix.session }}"
+          echo "name of the os:" ${{runner.os}}
         env:
           NAME: karthika
 
