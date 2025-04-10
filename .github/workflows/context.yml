@@ -21,9 +21,11 @@ jobs:
           echo 'You are attending Session-number: ${{ vars.actions }}'
           echo "Session conducted by: ${{ env.NAME }}"
           echo "Number session: ${{ matrix.session }}"
+          echo "Credetials for the training" : ${{env.access_cred}}
           echo "name of the os:" ${{runner.os}}
         env:
           NAME: karthika
+          access_cred: ${{secrets.API_KEY}
 
       - name: Check job status
         run: |
