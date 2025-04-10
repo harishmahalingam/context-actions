@@ -17,7 +17,7 @@ jobs:
  
       - name: Check job status
         run: |
-          if [ "${{ jobs.linux_job.status }}" == "success" ]; then
+          if [ "${{ job.linux_job.status }}" == "success" ]; then
             echo "Job succeeded"
           else
             echo "Job failed"
