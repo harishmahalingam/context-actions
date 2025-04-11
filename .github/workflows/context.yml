@@ -7,10 +7,16 @@ on:
         default: 'Niraj'
         required: false
         type: string
+      ODC:
+        description: 'Types environments'
+        default: 'DEV'
+        required: True
+        type: environment
 
 jobs:
   linux_job:
     runs-on: ubuntu-latest
+    environment: ${{inputs.ODC}}
     outputs:
       output1: ${{ steps.demo.outputs.test }}
     strategy:
@@ -27,10 +33,11 @@ jobs:
           echo "Credentials for the training: ${{ env.access_cred }}"
           echo "Name of the OS: ${{ runner.os }}"
           echo "test=welcome to the training" >> "$GITHUB_OUTPUT"
+          echo "Conducted on:" ${{vars.ODC}}
         env:
           NAME: karthika
           access_cred: ${{ secrets.API_KEY }}
-
+  
       - name: Check job status
         run: |
           if [ "${{ job.status }}" == "success" ]; then
